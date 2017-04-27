@@ -15,6 +15,4 @@
 
 @property (nonatomic, assign) UINavigationControllerOperation navigationControllerOperation;
 
-#pragma mark -- Tool
-+ (UIImage *)screenShotInNavigationController:(UINavigationController *)navigationController;
 @end
