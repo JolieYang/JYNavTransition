@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A09144BB1EB07C340035A84F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144BA1EB07C340035A84F /* main.m */; };
+		A09144BE1EB07C340035A84F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144BD1EB07C340035A84F /* AppDelegate.m */; };
+		A09144C61EB07C340035A84F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A09144C51EB07C340035A84F /* Assets.xcassets */; };
+		A09144C91EB07C340035A84F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09144C71EB07C340035A84F /* LaunchScreen.storyboard */; };
+		A09144DD1EB080CA0035A84F /* JYNavAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144DC1EB080CA0035A84F /* JYNavAnimation.m */; };
+		A09144E01EB081BA0035A84F /* JYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144DF1EB081BA0035A84F /* JYNavigationController.m */; };
+		A09144E31EB085500035A84F /* JYNavInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144E21EB085500035A84F /* JYNavInteractiveTransition.m */; };
+		A09144F31EB1E7740035A84F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144EB1EB1E7740035A84F /* FirstViewController.m */; };
+		A09144F41EB1E7740035A84F /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09144EC1EB1E7740035A84F /* FirstViewController.xib */; };
+		A09144F51EB1E7740035A84F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144EE1EB1E7740035A84F /* SecondViewController.m */; };
+		A09144F61EB1E7740035A84F /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09144EF1EB1E7740035A84F /* SecondViewController.xib */; };
+		A09144F71EB1E7740035A84F /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09144F11EB1E7740035A84F /* ThirdViewController.m */; };
+		A09144F81EB1E7740035A84F /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09144F21EB1E7740035A84F /* ThirdViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A09144B61EB07C340035A84F /* JYNavTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYNavTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09144BA1EB07C340035A84F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A09144BC1EB07C340035A84F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A09144BD1EB07C340035A84F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A09144C51EB07C340035A84F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A09144C81EB07C340035A84F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A09144CA1EB07C340035A84F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09144DB1EB080CA0035A84F /* JYNavAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYNavAnimation.h; sourceTree = "<group>"; };
+		A09144DC1EB080CA0035A84F /* JYNavAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYNavAnimation.m; sourceTree = "<group>"; };
+		A09144DE1EB081BA0035A84F /* JYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYNavigationController.h; sourceTree = "<group>"; };
+		A09144DF1EB081BA0035A84F /* JYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYNavigationController.m; sourceTree = "<group>"; };
+		A09144E11EB085500035A84F /* JYNavInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYNavInteractiveTransition.h; sourceTree = "<group>"; };
+		A09144E21EB085500035A84F /* JYNavInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYNavInteractiveTransition.m; sourceTree = "<group>"; };
+		A09144EA1EB1E7740035A84F /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		A09144EB1EB1E7740035A84F /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		A09144EC1EB1E7740035A84F /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		A09144ED1EB1E7740035A84F /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		A09144EE1EB1E7740035A84F /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		A09144EF1EB1E7740035A84F /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		A09144F01EB1E7740035A84F /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		A09144F11EB1E7740035A84F /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		A09144F21EB1E7740035A84F /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A09144B31EB07C340035A84F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A09144AD1EB07C340035A84F = {
+			isa = PBXGroup;
+			children = (
+				A09144B81EB07C340035A84F /* JYNavTransition */,
+				A09144B71EB07C340035A84F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A09144B71EB07C340035A84F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A09144B61EB07C340035A84F /* JYNavTransition.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A09144B81EB07C340035A84F /* JYNavTransition */ = {
+			isa = PBXGroup;
+			children = (
+				A09144DA1EB07E280035A84F /* JYNavTransition */,
+				A09144E91EB1E7740035A84F /* Controllers */,
+				A09144BC1EB07C340035A84F /* AppDelegate.h */,
+				A09144BD1EB07C340035A84F /* AppDelegate.m */,
+				A09144C51EB07C340035A84F /* Assets.xcassets */,
+				A09144C71EB07C340035A84F /* LaunchScreen.storyboard */,
+				A09144CA1EB07C340035A84F /* Info.plist */,
+				A09144B91EB07C340035A84F /* Supporting Files */,
+			);
+			path = JYNavTransition;
+			sourceTree = "<group>";
+		};
+		A09144B91EB07C340035A84F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A09144BA1EB07C340035A84F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A09144DA1EB07E280035A84F /* JYNavTransition */ = {
+			isa = PBXGroup;
+			children = (
+				A09144DB1EB080CA0035A84F /* JYNavAnimation.h */,
+				A09144DC1EB080CA0035A84F /* JYNavAnimation.m */,
+				A09144E11EB085500035A84F /* JYNavInteractiveTransition.h */,
+				A09144E21EB085500035A84F /* JYNavInteractiveTransition.m */,
+				A09144DE1EB081BA0035A84F /* JYNavigationController.h */,
+				A09144DF1EB081BA0035A84F /* JYNavigationController.m */,
+			);
+			path = JYNavTransition;
+			sourceTree = "<group>";
+		};
+		A09144E91EB1E7740035A84F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A09144EA1EB1E7740035A84F /* FirstViewController.h */,
+				A09144EB1EB1E7740035A84F /* FirstViewController.m */,
+				A09144EC1EB1E7740035A84F /* FirstViewController.xib */,
+				A09144ED1EB1E7740035A84F /* SecondViewController.h */,
+				A09144EE1EB1E7740035A84F /* SecondViewController.m */,
+				A09144EF1EB1E7740035A84F /* SecondViewController.xib */,
+				A09144F01EB1E7740035A84F /* ThirdViewController.h */,
+				A09144F11EB1E7740035A84F /* ThirdViewController.m */,
+				A09144F21EB1E7740035A84F /* ThirdViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A09144B51EB07C340035A84F /* JYNavTransition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A09144CD1EB07C340035A84F /* Build configuration list for PBXNativeTarget "JYNavTransition" */;
+			buildPhases = (
+				A09144B21EB07C340035A84F /* Sources */,
+				A09144B31EB07C340035A84F /* Frameworks */,
+				A09144B41EB07C340035A84F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JYNavTransition;
+			productName = JYNavTransition;
+			productReference = A09144B61EB07C340035A84F /* JYNavTransition.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A09144AE1EB07C340035A84F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = JolieYang;
+				TargetAttributes = {
+					A09144B51EB07C340035A84F = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5STM2R5485;
+					};
+				};
+			};
+			buildConfigurationList = A09144B11EB07C340035A84F /* Build configuration list for PBXProject "JYNavTransition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A09144AD1EB07C340035A84F;
+			productRefGroup = A09144B71EB07C340035A84F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A09144B51EB07C340035A84F /* JYNavTransition */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A09144B41EB07C340035A84F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09144F61EB1E7740035A84F /* SecondViewController.xib in Resources */,
+				A09144C91EB07C340035A84F /* LaunchScreen.storyboard in Resources */,
+				A09144F41EB1E7740035A84F /* FirstViewController.xib in Resources */,
+				A09144F81EB1E7740035A84F /* ThirdViewController.xib in Resources */,
+				A09144C61EB07C340035A84F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A09144B21EB07C340035A84F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09144E01EB081BA0035A84F /* JYNavigationController.m in Sources */,
+				A09144F31EB1E7740035A84F /* FirstViewController.m in Sources */,
+				A09144F71EB1E7740035A84F /* ThirdViewController.m in Sources */,
+				A09144E31EB085500035A84F /* JYNavInteractiveTransition.m in Sources */,
+				A09144F51EB1E7740035A84F /* SecondViewController.m in Sources */,
+				A09144BE1EB07C340035A84F /* AppDelegate.m in Sources */,
+				A09144BB1EB07C340035A84F /* main.m in Sources */,
+				A09144DD1EB080CA0035A84F /* JYNavAnimation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A09144C71EB07C340035A84F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A09144C81EB07C340035A84F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A09144CB1EB07C340035A84F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A09144CC1EB07C340035A84F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A09144CE1EB07C340035A84F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JYNavTransition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.JYNavTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A09144CF1EB07C340035A84F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JYNavTransition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.JYNavTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A09144B11EB07C340035A84F /* Build configuration list for PBXProject "JYNavTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A09144CB1EB07C340035A84F /* Debug */,
+				A09144CC1EB07C340035A84F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A09144CD1EB07C340035A84F /* Build configuration list for PBXNativeTarget "JYNavTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A09144CE1EB07C340035A84F /* Debug */,
+				A09144CF1EB07C340035A84F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A09144AE1EB07C340035A84F /* Project object */;
+}
