@@ -14,8 +14,6 @@
 @property (nonatomic, strong) JYNavInteractiveTransition *navInteractiveTransition;
 @property (nonatomic, strong) JYNavAnimation *anmiation;
 
-@property (nonatomic, strong) UIImageView *screenShotImageView;
-@property (nonatomic, strong) UIImage *toImage;
 @end
 
 @implementation JYNavigationController
@@ -28,20 +26,45 @@
     self.delegate = self;
     self.interactivePopGestureRecognizer.enabled = NO;
     
-    self.screenShots = [NSMutableArray array];
-    self.screenShotImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _screenShots = [NSMutableArray array];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (self.viewControllers.count > 0) {
-        UIImage *screenShot = [self screenShotInNavigationController:self];
+    if (self.viewControllers.count > 0 && self.popCount != 1) {
+        UIImage *screenShot = [self screenShot];
         [self.screenShots addObject:screenShot];
     }
+    _popCount = 0;
     
     [super pushViewController:viewController animated:animated];
 }
 
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    if (self.popCount > 0) {
+        [self clearCurrentScreenShot];
+    }
+    _popCount += 1;
+    
+    return [super popViewControllerAnimated:animated];
+}
 
+- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    for (NSInteger i = self.viewControllers.count - 1; i > 0 ; i--) {
+        if (self.viewControllers[i] == viewController) {
+            break;
+        }
+        _popCount++;
+    }
+    [self popScreenShots];
+    
+    return [super popToViewController:viewController animated:animated];
+}
+
+- (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+    [self popToRootScreenShot];
+    
+    return [super popToRootViewControllerAnimated:animated];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -63,6 +86,10 @@
 }
 
 #pragma mark -- Tool
+- (UIImage *)screenShot {
+    return [self screenShotInNavigationController:self];
+}
+
 - (UIImage *)screenShotInNavigationController:(UINavigationController *)navigationController {
     UIViewController *beyondVC = navigationController.view.window.rootViewController;
     CGSize size = beyondVC.view.frame.size;
@@ -79,4 +106,27 @@
     
     return screenShot;
 }
+
+// 删除到只剩一张当前页面的截图
+- (void)popToRootScreenShot {
+    [_screenShots removeObjectsInRange:NSMakeRange(1, _screenShots.count - 1)];
+    _popCount = 1;
+}
+
+// 删除到只剩当前页面的截图
+- (void)popScreenShots {
+    [_screenShots removeObjectsInRange:NSMakeRange(_screenShots.count - self.popCount + 1, self.popCount - 1)];
+    _popCount = 1;
+}
+
+// 清理pop时还未删除的截图--也就是清除当前页面的截图
+- (BOOL)clearCurrentScreenShot {
+    if (self.popCount == 1) {
+        [_screenShots removeLastObject];
+        _popCount = 0;
+        return YES;
+    }
+    return NO;
+}
+
 @end

@@ -10,16 +10,12 @@
 #import "JYNavigationController.h"
 
 @interface JYNavInteractiveTransition ()<UIViewControllerInteractiveTransitioning>
-@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) JYNavigationController *navigationController;
 @property (nonatomic, assign) BOOL shouldComplete;
-
-@property (nonatomic, strong) UIImageView *screenShotImageView;
-@property (nonatomic, strong) UIImageView *toImageView;
-@property (nonatomic, strong) NSMutableArray *screenShots;
-
 @property (nonatomic, assign) CGFloat percentComplete;
 
-@property (nonatomic, assign) BOOL haveScreenshot;// 是否已截取过当前的截图
+@property (nonatomic, strong) UIImageView *toImageView;
+@property (nonatomic, strong) UIView *maskView; // 截图上的黑色遮罩
 @end
 
 @implementation JYNavInteractiveTransition
@@ -28,16 +24,8 @@
     NSLog(@"startInteractiveTransition");
 }
 
-- (NSMutableArray *)screenShots {
-    if (!_screenShots) {
-        _screenShots = [[NSMutableArray alloc] init];
-    }
-    return _screenShots;
-}
-
 - (void)pushToViewController:(UIViewController *)vc {
-    self.pushToVC = vc;
-    self.navigationController = self.pushToVC.navigationController;
+    self.navigationController = (JYNavigationController *)vc.navigationController;
     [self addGestureRecognizerInView:vc.view];
 }
 
@@ -70,30 +58,32 @@
 }
 
 - (void)dragBegin:(UIPanGestureRecognizer *)gestrueRecognizer {
-    JYNavigationController *navController = (JYNavigationController *)self.navigationController;
-    self.screenShots = navController.screenShots;
-    
     self.interacting = YES;
     
-    if (!self.haveScreenshot) {
-        [self.screenShots addObject: [navController screenShotInNavigationController:self.navigationController]];
-        self.haveScreenshot = YES;
+    if (self.navigationController.popCount > 0) {
+        [self.navigationController clearCurrentScreenShot];
     }
     
-    self.screenShotImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.toImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-kAppWidth, 0, kAppWidth, kAppWidth)];
-    self.screenShotImageView.image = self.screenShots[self.screenShots.count - 2];
+    if (!self.toImageView) {
+        self.toImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [self.navigationController.view.window insertSubview:self.toImageView atIndex:0];
+    }
+    if (!self.maskView) {
+        self.maskView = [[UIView alloc] initWithFrame:self.toImageView.frame];
+        self.maskView.backgroundColor = [UIColor blackColor];
+        [self.navigationController.view.window insertSubview:self.maskView aboveSubview:self.toImageView];
+    }
     
-    [self.navigationController.view.window insertSubview:self.screenShotImageView atIndex:0];
+    self.toImageView.image = self.navigationController.screenShots.lastObject;
 }
 
 - (void)dragging:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view.superview];
-    CGFloat fraction = translation.x / 400.0;// 设置向右滑动400像素及以上代表100%，translation.x代表向右，translation.y代表向下滑动
-    fraction = fminf(fmaxf(fraction, 0.0), 1.0);
-    self.shouldComplete = (fraction > 0.5);
-    if (fraction > 0) {
-        [self updateInteractiveTransition:fraction];
+    CGFloat percentComplete = translation.x / kAppWidth;// 设置向右滑动400像素及以上代表100%，translation.x代表向右，translation.y代表向下滑动
+    percentComplete = fminf(fmaxf(percentComplete, 0.0), 1.0);
+    self.shouldComplete = (percentComplete > 0.5);
+    if (percentComplete > 0) {
+        [self updateInteractiveTransition:percentComplete];
     }
 }
 
@@ -108,30 +98,32 @@
 
 - (void)updateInteractiveTransition:(CGFloat)percentComplete {
     self.navigationController.view.transform = CGAffineTransformMakeTranslation(percentComplete * kAppWidth, 0);
-    self.screenShotImageView.transform = CGAffineTransformMakeTranslation(percentComplete*kAppWidth - kAppWidth, 0);
+    self.toImageView.transform = CGAffineTransformMakeTranslation(percentComplete*kAppWidth - kAppWidth, 0);
+    double alpha = kMaskViewAlpha * (1 - percentComplete/kMaskViewScale);
+    self.maskView.alpha = alpha;
 }
 
 - (void)cancelInterfactiveTransition {
     [UIView animateWithDuration:0.3 animations:^{
         self.navigationController.view.transform = CGAffineTransformIdentity;
-        self.screenShotImageView.transform = CGAffineTransformMakeTranslation(-kAppWidth, 0);
+        self.toImageView.transform = CGAffineTransformMakeTranslation(-kAppWidth, 0);
+        self.maskView.alpha = kMaskViewAlpha;
     } completion:^(BOOL finished) {
-        
     }];
 }
 
 - (void)finishInteractiveTransition {
     [UIView animateWithDuration:0.3 animations:^{
         self.navigationController.view.transform = CGAffineTransformMakeTranslation(kAppWidth, 0);
-        self.screenShotImageView.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.toImageView.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.maskView.alpha = 0.0;
     } completion:^(BOOL finished) {
-        [self.screenShotImageView removeFromSuperview];
+        [self.toImageView removeFromSuperview];
+        self.toImageView = nil;
+        [self.maskView removeFromSuperview];
+        self.maskView = nil;
         self.navigationController.view.transform = CGAffineTransformIdentity;
         [self.navigationController popViewControllerAnimated:NO];
-        [self.screenShots removeLastObject];
-        [self.screenShots removeLastObject];
-        self.haveScreenshot = NO;
     }];
 }
-
 @end

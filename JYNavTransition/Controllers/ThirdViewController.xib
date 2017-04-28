@@ -12,9 +12,40 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA5-58-JYD">
+                    <rect key="frame" x="90" y="269" width="138" height="30"/>
+                    <state key="normal" title="Pop To Root">
+                        <color key="titleColor" red="0.79537040000000003" green="0.49260812999999998" blue="0.26788461209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="popToRootAction:" destination="-1" eventType="touchUpInside" id="eLn-Nb-pPq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeV-7A-WK9">
+                    <rect key="frame" x="57" y="307" width="207" height="30"/>
+                    <state key="normal" title="Pop To ViewController:FirstVC">
+                        <color key="titleColor" red="0.79537040000000003" green="0.49260812999999998" blue="0.26788461209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="popToFirstVCAction:" destination="-1" eventType="touchUpInside" id="I0l-N2-Tsg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4x-MQ-MSM">
+                    <rect key="frame" x="46" y="363" width="227" height="30"/>
+                    <state key="normal" title="Pop To ViewController:secondVC">
+                        <color key="titleColor" red="0.79537040000000003" green="0.49260812999999998" blue="0.26788461209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="popToSecondVCAction:" destination="-1" eventType="touchUpInside" id="qjg-z0-di9"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="15" y="384"/>
         </view>
     </objects>
 </document>

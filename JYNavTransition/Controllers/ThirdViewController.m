@@ -18,10 +18,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)popToRootAction:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+- (IBAction)popToFirstVCAction:(id)sender {
+    [self.navigationController popToViewController:self.firstVC animated:YES];
+}
+- (IBAction)popToSecondVCAction:(id)sender {
+    [self.navigationController popToViewController:self.secondVC animated:YES];
 }
 
 @end

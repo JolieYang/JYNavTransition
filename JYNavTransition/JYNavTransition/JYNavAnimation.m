@@ -11,17 +11,9 @@
 
 @interface JYNavAnimation ()
 @property (nonatomic, strong) JYNavigationController *navigationController;
-@property (nonatomic, strong) NSMutableArray *screenShots;
 @end
 
 @implementation JYNavAnimation
-
-- (NSMutableArray *)screenShots {
-    if (!_screenShots) {
-        _screenShots = [[NSMutableArray alloc] init];
-    }
-    return _screenShots;
-}
 
 #pragma mark -- UIViewControllerAnimatedTransitioning
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
@@ -33,48 +25,42 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     self.navigationController = (JYNavigationController *)toViewController.navigationController;
     
-    self.screenShots = self.navigationController.screenShots;
-    
-    
     [[transitionContext containerView] addSubview:toViewController.view];
     
+    UIImageView *fromImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
     if (self.navigationControllerOperation == UINavigationControllerOperationPush) {
-        UIImageView *preImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        preImageView.image = self.screenShots.lastObject;
-        [self.navigationController.view.window addSubview:preImageView];
+        fromImageView.image = self.navigationController.screenShots.lastObject;
+        [self.navigationController.view.window addSubview:fromImageView];
         self.navigationController.view.transform = CGAffineTransformMakeTranslation(kAppWidth, 0);
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             self.navigationController.view.transform = CGAffineTransformMakeTranslation(0, 0);
-            preImageView.center = CGPointMake(-kAppWidth/2, kAppHeight/2);
+            fromImageView.center = CGPointMake(-kAppWidth/2, kAppHeight/2);
         } completion:^(BOOL finished) {
-            [preImageView removeFromSuperview];
+            [fromImageView removeFromSuperview];
             [transitionContext completeTransition:YES];
         }];
         
     } else if (self.navigationControllerOperation == UINavigationControllerOperationPop) {
-        //自定义Pop动画效果
-        UIImageView *preImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-kAppWidth, 0, kAppWidth, kAppHeight)];
-        preImageView.image = self.screenShots.lastObject;
-        [self.navigationController.view.window addSubview:preImageView];
-        UIImageView *currentImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        currentImageView.image = [self.navigationController screenShotInNavigationController:self.navigationController];
-        [self.navigationController.view addSubview:currentImageView];
+        UIImageView *toImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-kAppWidth, 0, kAppWidth, kAppHeight)];
+        toImageView.image = self.navigationController.screenShots.lastObject;
+        [self.navigationController.view.window addSubview:toImageView];
+        fromImageView.image = [self.navigationController screenShot];
+        [self.navigationController.view addSubview:fromImageView];
         
         toViewController.view.frame = CGRectMake(-kAppWidth, 0, kAppWidth, kAppHeight);
         fromViewController.view.backgroundColor = [UIColor grayColor];
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            currentImageView.center = CGPointMake(kAppWidth * 3 / 2, kAppHeight/2);
-            preImageView.center = CGPointMake(kAppWidth/2, kAppHeight/2);
+            fromImageView.center = CGPointMake(kAppWidth * 3 / 2, kAppHeight/2);
+            toImageView.center = CGPointMake(kAppWidth/2, kAppHeight/2);
             toViewController.view.frame = CGRectMake(0, 0, kAppWidth, kAppHeight);
         } completion:^(BOOL finished) {
-            [self.screenShots removeLastObject];
-            [currentImageView removeFromSuperview];
-            [preImageView removeFromSuperview];
+            [fromImageView removeFromSuperview];
+            [toImageView removeFromSuperview];
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     }
-    
 }
 
 @end

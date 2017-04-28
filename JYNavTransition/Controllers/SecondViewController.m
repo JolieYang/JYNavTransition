@@ -27,6 +27,8 @@
 }
 - (IBAction)pushAction:(id)sender {
     ThirdViewController *vc = [[ThirdViewController alloc] init];
+    vc.firstVC = self.firstVC;
+    vc.secondVC = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

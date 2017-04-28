@@ -31,6 +31,7 @@
 }
 - (IBAction)pushAction:(id)sender {
     SecondViewController *vc = [[SecondViewController alloc] init];
+    vc.firstVC = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

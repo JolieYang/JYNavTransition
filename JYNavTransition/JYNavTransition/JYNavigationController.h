@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface JYNavigationController : UINavigationController
-@property (nonatomic, strong) NSMutableArray *screenShots;
-- (UIImage *)screenShotInNavigationController:(UINavigationController *)navigationController;
+@property (nonatomic, strong, readonly) NSMutableArray *screenShots;
+@property (nonatomic, assign, readonly) NSInteger popCount;
+
+// 截图
+- (UIImage *)screenShot;
+// 清除当前页面的截图
+- (BOOL)clearCurrentScreenShot;
 @end

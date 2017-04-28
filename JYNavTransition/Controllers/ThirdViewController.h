@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface ThirdViewController : UIViewController
 
+@property (nonatomic, strong) FirstViewController *firstVC;
+@property (nonatomic, strong) SecondViewController *secondVC;
 @end
