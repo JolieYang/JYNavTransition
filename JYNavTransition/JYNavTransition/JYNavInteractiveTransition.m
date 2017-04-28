@@ -15,7 +15,7 @@
 @property (nonatomic, assign) CGFloat percentComplete;
 
 @property (nonatomic, strong) UIImageView *toImageView;
-@property (nonatomic, strong) UIView *maskView; // 截图上的黑色遮罩
+@property (nonatomic, strong) UIView *maskView;
 @end
 
 @implementation JYNavInteractiveTransition
@@ -79,7 +79,7 @@
 
 - (void)dragging:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view.superview];
-    CGFloat percentComplete = translation.x / kAppWidth;// 设置向右滑动400像素及以上代表100%，translation.x代表向右，translation.y代表向下滑动
+    CGFloat percentComplete = translation.x / kAppWidth;// translation.x代表向右滑动，translation.y代表向下滑动
     percentComplete = fminf(fmaxf(percentComplete, 0.0), 1.0);
     self.shouldComplete = (percentComplete > 0.5);
     if (percentComplete > 0) {
@@ -98,8 +98,8 @@
 
 - (void)updateInteractiveTransition:(CGFloat)percentComplete {
     self.navigationController.view.transform = CGAffineTransformMakeTranslation(percentComplete * kAppWidth, 0);
-    self.toImageView.transform = CGAffineTransformMakeTranslation((percentComplete - 1)*kAppWidth, 0);
-    double alpha = kMaskViewAlpha * (1 - percentComplete/kMaskViewScale);
+    self.toImageView.transform = CGAffineTransformMakeTranslation((percentComplete - 1) * kAppWidth, 0);
+    double alpha = kMaskViewDefaultAlpha * (1 - percentComplete);
     self.maskView.alpha = alpha;
 }
 
@@ -107,7 +107,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.navigationController.view.transform = CGAffineTransformIdentity;
         self.toImageView.transform = CGAffineTransformMakeTranslation(-kAppWidth, 0);
-        self.maskView.alpha = kMaskViewAlpha;
+        self.maskView.alpha = kMaskViewDefaultAlpha;
     } completion:^(BOOL finished) {
     }];
 }
