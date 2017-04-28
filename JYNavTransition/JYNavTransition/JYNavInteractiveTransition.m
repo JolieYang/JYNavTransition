@@ -98,7 +98,7 @@
 
 - (void)updateInteractiveTransition:(CGFloat)percentComplete {
     self.navigationController.view.transform = CGAffineTransformMakeTranslation(percentComplete * kAppWidth, 0);
-    self.toImageView.transform = CGAffineTransformMakeTranslation(percentComplete*kAppWidth - kAppWidth, 0);
+    self.toImageView.transform = CGAffineTransformMakeTranslation((percentComplete - 1)*kAppWidth, 0);
     double alpha = kMaskViewAlpha * (1 - percentComplete/kMaskViewScale);
     self.maskView.alpha = alpha;
 }
