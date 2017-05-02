@@ -24,7 +24,7 @@
     self.navInteractiveTransition = [JYNavInteractiveTransition new];
     self.anmiation = [JYNavAnimation new];
     self.delegate = self;
-    self.interactivePopGestureRecognizer.enabled = NO;
+    self.interactivePopGestureRecognizer.enabled = YES;
     
     _screenShots = [NSMutableArray array];
 }
@@ -64,6 +64,10 @@
     [self popToRootScreenShot];
     
     return [super popToRootViewControllerAnimated:animated];
+}
+
+- (void)setFullScreenPopGestureEnabled:(BOOL)fullScreenPopGestureEnabled {
+    self.navInteractiveTransition.fullScreenGesture.enabled = fullScreenPopGestureEnabled;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

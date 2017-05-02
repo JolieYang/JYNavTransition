@@ -7,6 +7,7 @@
 //
 
 #import "ThirdViewController.h"
+#import "JYNavigationController.h"
 
 @interface ThirdViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    JYNavigationController *nav = (JYNavigationController *)self.navigationController;
+    nav.fullScreenPopGestureEnabled = NO;
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];

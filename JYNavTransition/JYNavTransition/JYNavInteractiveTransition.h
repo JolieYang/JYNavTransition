@@ -14,5 +14,6 @@
 
 @interface JYNavInteractiveTransition : NSObject<UIViewControllerInteractiveTransitioning>
 @property (nonatomic, assign) BOOL interacting;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *fullScreenGesture;
 - (void)pushToViewController:(UIViewController *)vc;
 @end

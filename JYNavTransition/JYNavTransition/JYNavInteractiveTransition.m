@@ -30,9 +30,9 @@
 }
 
 - (void)addGestureRecognizerInView:(UIView *)view {
-    UIScreenEdgePanGestureRecognizer *gesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-    gesture.edges = UIRectEdgeLeft;
-    [view addGestureRecognizer:gesture];
+    self.fullScreenGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    self.fullScreenGesture.edges = UIRectEdgeLeft;
+    [view addGestureRecognizer:self.fullScreenGesture];
 }
 
 - (void)handleGesture:(UIPanGestureRecognizer *)gestureRecognizer {

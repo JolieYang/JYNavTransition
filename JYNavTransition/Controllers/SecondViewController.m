@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
+#import "JYNavigationController.h"
 
 @interface SecondViewController ()
 
@@ -20,6 +21,9 @@
     // Do any additional setup after loading the view from its nib.
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction)];
     self.navigationItem.leftBarButtonItem = backItem;
+    
+    JYNavigationController *nav = (JYNavigationController *)self.navigationController;
+    nav.fullScreenPopGestureEnabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

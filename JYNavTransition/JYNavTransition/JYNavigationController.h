@@ -11,7 +11,7 @@
 @interface JYNavigationController : UINavigationController
 @property (nonatomic, strong, readonly) NSMutableArray *screenShots;
 @property (nonatomic, assign, readonly) NSInteger popCount;
-
+@property (nonatomic, assign) BOOL fullScreenPopGestureEnabled;
 // 截图
 - (UIImage *)screenShot;
 // 清除当前页面的截图
