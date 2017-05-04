@@ -30,6 +30,10 @@
     UIImageView *fromImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     if (self.navigationControllerOperation == UINavigationControllerOperationPush) {
+        CGRect toViewEndFrame = [transitionContext finalFrameForViewController:toViewController];
+        CGRect toViewStartFrame = toViewEndFrame;
+        toViewController.view.frame = toViewStartFrame;
+        
         fromImageView.image = self.navigationController.screenShots.lastObject;
         [self.navigationController.view.window addSubview:fromImageView];
         self.navigationController.view.transform = CGAffineTransformMakeTranslation(kAppWidth, 0);
